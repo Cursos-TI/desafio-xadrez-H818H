@@ -8,7 +8,6 @@
 
     -Exibir o movimento de cada peça na tela 
 */
-
 #include<stdio.h>
 
 int main()
