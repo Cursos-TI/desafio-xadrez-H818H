@@ -15,9 +15,11 @@ int main()
     // Declarando as variaveis. 
     // "bispo" nao foi inicializado aqui
     // pois faço isso dentro do loop for
+    // "i" e "c" serão utilizados para o movimento do cavalo
     int bispo;
     int torre = 0;
     int dama = 0;
+    int i, c = 0;
 
     // Criando o loop For para o movimento do Bispo
     printf("\n***Movimento Do Bispo:\n");
@@ -27,7 +29,7 @@ int main()
     }
 
     // Criando o loop Do/While para o movimento da Dama
-    printf("***Movimento Da Dama:\n");
+    printf("\n***Movimento Da Dama:\n");
     do
     {
         dama++;
@@ -37,12 +39,25 @@ int main()
 
 
     // Criando o loop While para movimento da Torre
-    printf("***Movimento Da Torre:\n");
+    printf("\n***Movimento Da Torre:\n");
     while(torre < 5)
     {
         torre++;
         printf("%d - Direita\n", torre);
     }
 
+    // Loop aninhado para simular a movimentação do Cavalo
+    // Loop externo for, interno While
+    printf("\n***Movimento Do Cavalo:\n");
+    for(i = 0; i < 1; i++)
+    {
+        while(c < 2)
+        {
+            printf("Baixo\n");
+            c++;
+        }
+        printf("Esquerda\n");
+    }
+    
     return 0;
 }
