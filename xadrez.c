@@ -8,56 +8,75 @@
 
     -Exibir o movimento de cada peça na tela 
 */
+
 #include<stdio.h>
 
-int main()
+void movDama(int n)
 {
-    // Declarando as variaveis. 
-    // "bispo" nao foi inicializado aqui
-    // pois faço isso dentro do loop for
-    // "i" e "c" serão utilizados para o movimento do cavalo
-    int bispo;
-    int torre = 0;
-    int dama = 0;
-    int i, c = 0;
-
-    // Criando o loop For para o movimento do Bispo
-    printf("\n***Movimento Do Bispo:\n");
-    for(bispo = 0; bispo < 5; bispo++)
+    if(n > 0)
     {
-        printf("%d - Cima Direita\n", bispo + 1);
+        printf("Esquerda\n");
+        movDama(n - 1);
     }
+}
 
-    // Criando o loop Do/While para o movimento da Dama
-    printf("\n***Movimento Da Dama:\n");
-    do
+void movTorre(int n)
+{
+    if(n > 0)
     {
-        dama++;
-        printf("%d - Esquerda\n", dama);
+        printf("Direita\n");
+        movTorre(n - 1);
     }
-    while(dama < 8);
+}
 
-
-    // Criando o loop While para movimento da Torre
-    printf("\n***Movimento Da Torre:\n");
-    while(torre < 5)
+void movBispo(int n)
+{
+    if(n > 0)
     {
-        torre++;
-        printf("%d - Direita\n", torre);
+        for(int i = 0; i < 1; i++)
+        {
+            for(int c = 0; c < 1; c++)
+            {
+                printf("Direita\n");
+            }
+            printf("Cima\n");
+        }
+        movBispo(n - 1);
     }
+}
 
-    // Loop aninhado para simular a movimentação do Cavalo
-    // Loop externo for, interno While
-    printf("\n***Movimento Do Cavalo:\n");
-    for(i = 0; i < 1; i++)
+void movCavalo(int n)
+{
+    int c = 0;
+    for(n = 0; n < 1; n++)
     {
         while(c < 2)
         {
-            printf("Baixo\n");
+            printf("Cima\n");
             c++;
         }
-        printf("Esquerda\n");
+        printf("Direita\n");
     }
-    
+}
+
+int main()
+{
+    int d = 8;
+    int t = 5;
+    int b = 5;
+    int c = 1;
+
+    printf("*Movimento da Dama:\n");
+    movDama(d);
+
+    printf("\n*Movimento da Torre:\n");
+    movTorre(t);
+
+    printf("\n*Movimento do Bispo:\n");
+    movBispo(b);
+
+    printf("\n*Movimento do Cavalo:\n");
+    movCavalo(c);
+
     return 0;
 }
